@@ -9,6 +9,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 
+import env from "../src/services/env.service";
+
 export default function Home() {
   const [isShow, setIsShow] = useState<Boolean>(false);
   const [dataService, setDataService] = useState([]);
@@ -18,7 +20,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get(`${process.env.NEXT_PUBLIC_API_SERVICE_DATA}`)
+      .get(env)
       .then((response) => {
         // handle success
         console.log("response : ", response.data.service);
